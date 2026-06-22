@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Color Accessibility Guide — Error / Success / Warning (Qore)</title>
+<title>Ohana Color Accessibility Guide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@
   h1 { font:800 30px/36px var(--font); color:var(--ink); margin:0 0 8px; letter-spacing:-.02em; }
   .lede { font:400 16px/24px var(--font); color:var(--n-600); margin:0 0 4px; max-width:760px; }
   h2 { font:700 22px/28px var(--font); color:var(--ink); margin:48px 0 4px; letter-spacing:-.01em; }
-  h2 .em { font:600 13px/18px var(--font); color:var(--white); padding:2px 8px; border-radius:6px; vertical-align:3px; margin-left:8px; }
+  h2 .em { font:600 11px/18px var(--font); color:var(--white); padding:2px 8px; border-radius:6px; vertical-align:3px; margin-left:8px; text-transform:uppercase; letter-spacing:.05em; }
   .h2sub { font:400 14px/21px var(--font); color:var(--n-600); margin:0 0 20px; max-width:780px; }
   h3 { font:600 15px/20px var(--font); color:var(--n-900); margin:0 0 12px; }
 
@@ -153,18 +153,7 @@
   .ratio { font:600 12px/16px var(--mono); }
   .muted { color:var(--n-500); font-style:italic; }
 
-  /* cheat sheet */
-  .cheat { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-  .cheat .col { border:1px solid var(--n-200); border-radius:12px; overflow:hidden; }
-  .cheat .col h4 { margin:0; padding:12px 16px; font:700 14px/18px var(--font); color:var(--white); }
-  .cheat .col table { margin:0; table-layout:fixed; }
-  .cheat .col td { font-size:12px; padding:9px 16px; }
-  .cheat .col td:first-child { width:46%; color:var(--n-600); }
-  .cheat .col tr:last-child td { border-bottom:0; }
-  /* keep value cells as real table-cells (don't let .cell turn them into flex boxes) */
-  .cheat .col td.cell { display:table-cell; white-space:nowrap; }
-  .cheat .col td.cell .sw { display:inline-block; vertical-align:middle; margin-right:6px; }
-  @media (max-width:860px){ .cheat{ grid-template-columns:1fr; } table{ font-size:12px; } }
+  @media (max-width:860px){ table{ font-size:12px; } }
 
   /* ---- combination creator (simple) ---- */
   .cc-controls { display:flex; flex-wrap:wrap; gap:18px; align-items:flex-end; margin-bottom:18px; }
@@ -187,25 +176,46 @@
   .cc-preview { width:90px; height:90px; flex:0 0 90px; border-radius:12px; display:grid; place-items:center; font:800 30px/1 var(--font); }
   .cc-pick-name { font:700 17px/22px var(--font); color:var(--ink); }
   .cc-pick-hex { font:600 13px/18px var(--mono); color:var(--n-600); margin-top:2px; }
-  .cc-bucket { margin-top:16px; }
-  .cc-bucket h4 { font:600 14px/20px var(--font); color:var(--n-900); margin:0 0 10px; }
   .cc-note { font:400 12px/16px var(--font); color:var(--n-500); }
-  .cc-chips { display:flex; flex-wrap:wrap; gap:8px; }
-  .cc-chip { display:flex; align-items:center; gap:8px; border:1px solid var(--n-200); border-radius:8px; padding:6px 11px 6px 6px; background:var(--white); }
-  .cc-chip .cs { width:28px; height:28px; border-radius:6px; border:1px solid rgba(12,13,16,.12); flex:0 0 28px; display:grid; place-items:center; font:700 11px/1 var(--font); }
-  .cc-chip .ct { font:600 12px/15px var(--font); color:var(--ink); }
-  .cc-chip .cc-meta { display:flex; align-items:center; gap:6px; margin-top:3px; }
-  .cc-chip .cr { font:600 11px/14px var(--mono); color:var(--n-600); }
-  .cc-prev { margin-left:8px; min-width:96px; height:38px; border-radius:7px; border:1px solid var(--n-200); display:grid; place-items:center; padding:0 8px; }
-  .cc-prev-ui { display:flex; align-items:center; justify-content:center; gap:8px; }
-  .cc-prev-ui svg { display:block; }
-  .cc-empty { font:400 13px/19px var(--font); color:var(--n-500); font-style:italic; }
+  .cc-tablewrap { overflow-x:auto; margin-top:4px; }
+  .cc-matrix { width:100%; border-collapse:separate; border-spacing:0; min-width:760px; table-layout:fixed; }
+  .cc-matrix th { text-align:center; vertical-align:bottom; font:700 11px/15px var(--font); color:var(--n-700); padding:8px 10px; border-bottom:2px solid var(--n-200); }
+  .cc-matrix th:first-child { text-align:left; width:150px; }
+  .cc-th-note { font:500 10px/13px var(--mono); color:var(--n-500); }
+  .cc-matrix td { padding:10px; border-bottom:1px solid var(--n-200); text-align:center; vertical-align:middle; }
+  .cc-matrix td.cc-colname { text-align:left; }
+  .cc-colcell { display:flex; align-items:center; gap:8px; }
+  .cc-colcell .cs { width:26px; height:26px; border-radius:6px; border:1px solid rgba(12,13,16,.12); flex:0 0 26px; }
+  .cc-colcell .ct { font:600 12px/15px var(--font); color:var(--ink); }
+  .cc-colhex { font:500 10px/13px var(--mono); color:var(--n-500); }
+  .cc-cprev { width:72px; height:34px; margin:0 auto 5px; border-radius:6px; border:1px solid var(--n-200); display:flex; align-items:center; justify-content:center; gap:6px; overflow:hidden; }
+  .cc-cprev svg { display:block; }
+  .cc-meta { display:flex; align-items:center; justify-content:center; gap:6px; }
+  .cc-meta .cr { font:600 10.5px/14px var(--mono); color:var(--n-600); }
+  .cc-x { color:var(--n-400); font:600 14px/1 var(--font); }
+  .cc-empty { font:400 13px/19px var(--font); color:var(--n-500); font-style:italic; text-align:center; padding:20px; }
+  /* mobile: collapse the matrix into stacked cards */
+  @media (max-width:720px){
+    .cc-tablewrap { overflow-x:visible; }
+    .cc-matrix { min-width:0; table-layout:auto; }
+    .cc-matrix thead { display:none; }
+    .cc-matrix, .cc-matrix tbody, .cc-matrix tr, .cc-matrix td { display:block; width:auto; }
+    .cc-matrix tr { border:1px solid var(--n-200); border-radius:10px; padding:8px 12px; margin-bottom:12px; }
+    .cc-matrix td { border:0; border-bottom:1px solid var(--n-100); padding:8px 0; display:flex; align-items:center; justify-content:space-between; gap:12px; text-align:right; }
+    .cc-matrix tr td:last-child { border-bottom:0; }
+    .cc-matrix td.cc-colname { border-bottom:1px solid var(--n-200); padding-bottom:10px; margin-bottom:4px; }
+    .cc-matrix td::before { content:attr(data-label); font:700 11px/15px var(--font); color:var(--n-600); text-transform:uppercase; letter-spacing:.05em; flex:0 0 auto; }
+    .cc-matrix td.cc-colname::before { content:none; }
+    .cc-cprev { margin:0; }
+    .cc-meta { justify-content:flex-end; }
+    .cc-x { width:100%; text-align:right; }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <h1>Color Accessibility Guide</h1>
+  <h1>Ohana Color Accessibility Guide</h1>
   <p class="lede">Accessible <b>Error</b>, <b>Success</b> and <b>Warning</b> recipes for <b>buttons</b>, <b>toasts</b> and <b>messages</b> — every interaction state spelled out, sourced from the <b>Qore</b> Figma palettes. Each cell tells you exactly which token to put on the <b>surface</b> and which on the <b>text/icon</b>.</p>
 
   <!-- ============ COMBINATION CREATOR (simple, top) ============ -->
@@ -240,27 +250,29 @@
           <div class="cc-hint" id="ccHint"></div>
         </div>
       </div>
-      <div class="cc-bucket"><h4>Fine print &amp; disclaimers <span class="cc-note">small text — best at ≥ 7:1 (AAA)</span></h4><div class="cc-chips" id="ccFine"></div></div>
-      <div class="cc-bucket"><h4>Body &amp; small text <span class="cc-note">needs ≥ 4.5:1 (AA)</span></h4><div class="cc-chips" id="ccBody"></div></div>
-      <div class="cc-bucket"><h4>Headings &amp; large text <span class="cc-note">24px+ or 19px bold — needs ≥ 3:1 (AA)</span></h4><div class="cc-chips" id="ccLarge"></div></div>
-      <div class="cc-bucket"><h4>UI — icons, borders &amp; controls <span class="cc-note">needs ≥ 3:1</span></h4><div class="cc-chips" id="ccUi"></div></div>
+      <p class="cc-note" style="margin:0 0 10px">Showing colours that pass for at least one use. Each cell shows the contrast ratio, the WCAG level, and a preview.</p>
+      <div class="cc-tablewrap">
+        <table class="cc-matrix">
+          <thead><tr>
+            <th>Colour</th>
+            <th>Heading / large text<br><span class="cc-th-note">≥ 3:1</span></th>
+            <th>Body &amp; small text<br><span class="cc-th-note">≥ 4.5:1</span></th>
+            <th>Fine print<br><span class="cc-th-note">≥ 7:1</span></th>
+            <th>Icon<br><span class="cc-th-note">≥ 3:1</span></th>
+            <th>UI / border<br><span class="cc-th-note">≥ 3:1</span></th>
+          </tr></thead>
+          <tbody id="ccRows"></tbody>
+        </table>
+      </div>
     </div>
   </div>
 
   <!-- HOW TO READ -->
   <h2>How to read this guide</h2>
-  <div class="legend">
-    <div class="box"><b>1 · Pick the component + state</b><p>Find your component (button / toast / message), then the row for the state you’re styling: Default, Hover, Pressed, Focus or Disabled.</p></div>
-    <div class="box"><b>2 · Read the columns left→right</b><p>Each row gives the <b>Surface</b> (background), the <b>Text / Icon</b> color, and the <b>Border</b>. Apply those exact tokens — that pairing is what passes the contrast check.</p></div>
-    <div class="box"><b>3 · Confirm the badge</b><p><span class="pill aaa">AAA ≥7</span> <span class="pill aa">AA ≥4.5</span> are for text. <span class="pill ui">UI ≥3</span> is for borders/icons/large fills. <span class="pill ex">n/a</span> = disabled (exempt from WCAG).</p></div>
-  </div>
-  <div class="legend" style="margin-top:0">
-    <div class="box"><b>The golden rule: surface ↔ text</b><p>Light surface → use the <b>dark</b> text token (700/800). Bold/dark surface → use <b>white</b>. The tables below already encode the correct direction for every state, so you never have to guess.</p></div>
-    <div class="box"><b>Why some steps are skipped</b><p>The <code>700</code> steps of the lime & orange ramps are mid-tones that fail with <em>both</em> black and white text. So Pressed on Success/Warning darkens with an inset shadow instead of jumping to 700.</p></div>
-    <div class="box"><b>Two Qore tokens nudged darker</b><p>Qore’s <code>text/success</code> (#438519) and <code>text/warning</code> (#c65306) measure ~4.4:1 on white — just under AA. This guide uses <code>success/800</code> and <code>warning/800</code> for body text so everything clears 4.5:1.</p></div>
-  </div>
+  <p class="h2sub">Each row = one state. Apply its <b>Surface</b> + <b>Text/Icon</b> tokens exactly — that pairing passes the check. Badges: <span class="pill aaa">AAA ≥7</span> <span class="pill aa">AA ≥4.5</span> for text · <span class="pill ui">UI ≥3</span> for icons/borders · <span class="pill ex">n/a</span> = disabled.</p>
 
   <!-- ============ BUTTONS · FILLED ============ -->
+  <div class="comp-sec" data-comp="button">
   <h2>Buttons — Filled <span class="em" style="background:var(--n-900)">primary actions</span></h2>
   <p class="h2sub">Solid surface. Because the Success/Warning surfaces are light, their label is <b>ink (#0c0d10)</b>; the Error surface is dark enough for <b>white</b>. Hover/Pressed/Focus shown as static swatches, then a live button you can actually interact with.</p>
 
@@ -406,8 +418,10 @@
       </table>
     </div>
   </div>
+  </div><!-- /comp-sec button -->
 
   <!-- ============ TOASTS ============ -->
+  <div class="comp-sec" data-comp="toast">
   <h2>Toasts <span class="em" style="background:var(--n-700)">transient feedback</span></h2>
   <p class="h2sub">Bold solid surface. The whole toast is one static color; the <b>interactive part is the close button</b>, whose Hover/Pressed/Focus states are listed. Error uses white text on a dark surface; Success &amp; Warning use ink text because their surface is light.</p>
 
@@ -475,8 +489,10 @@
       </table>
     </div>
   </div>
+  </div><!-- /comp-sec toast -->
 
   <!-- ============ MESSAGES ============ -->
+  <div class="comp-sec" data-comp="message">
   <h2>Messages <span class="em" style="background:var(--n-700)">inline alerts</span></h2>
   <p class="h2sub">Soft tinted surface (the <code>50</code> step) + a colored left/all border + dark text. Meaning is carried by icon + text (never color alone). The <b>interactive part is the action link</b>, whose Default/Hover/Pressed states are listed.</p>
 
@@ -548,48 +564,7 @@
     </div>
   </div>
   <p class="h2sub" style="margin-top:-8px">* Borders are non-text and judged at the ≥3:1 UI threshold. Never rely on the border/color alone to signal state — the icon + dark text always carry the meaning (WCAG 1.4.1).</p>
-
-  <!-- ============ CHEAT SHEET ============ -->
-  <h2>Quick cheat-sheet — which token goes where</h2>
-  <p class="h2sub">The fastest reference: per severity, the one token to reach for in each role.</p>
-  <div class="cheat">
-    <div class="col">
-      <h4 style="background:var(--error-600)">Error · rose</h4>
-      <table><tbody>
-        <tr><td>Filled surface</td><td class="cell"><span class="sw" style="background:var(--error-600)"></span>600 → 700 → 800</td></tr>
-        <tr><td>Filled text</td><td class="cell"><span class="sw tx" style="background:var(--white);color:var(--ink)">A</span>white</td></tr>
-        <tr><td>Subtle text</td><td class="cell"><span class="sw" style="background:var(--error-700)"></span>700</td></tr>
-        <tr><td>Tint surface</td><td class="cell"><span class="sw" style="background:var(--error-50)"></span>50 / 100</td></tr>
-        <tr><td>Border</td><td class="cell"><span class="sw" style="background:var(--error-500)"></span>500</td></tr>
-        <tr><td>Icon</td><td class="cell"><span class="sw" style="background:var(--error-600)"></span>600</td></tr>
-        <tr><td>Link h→p</td><td class="cell"><span class="sw" style="background:var(--error-800)"></span>800 → <span class="sw" style="background:var(--error-900)"></span>900</td></tr>
-      </tbody></table>
-    </div>
-    <div class="col">
-      <h4 style="background:var(--success-600)">Success · lime</h4>
-      <table><tbody>
-        <tr><td>Filled surface</td><td class="cell"><span class="sw" style="background:var(--success-500)"></span>500 → 600</td></tr>
-        <tr><td>Filled text</td><td class="cell"><span class="sw tx" style="background:var(--ink);color:#fff">A</span>ink</td></tr>
-        <tr><td>Subtle text</td><td class="cell"><span class="sw" style="background:var(--success-800)"></span>800</td></tr>
-        <tr><td>Tint surface</td><td class="cell"><span class="sw" style="background:var(--success-50)"></span>50 / 100</td></tr>
-        <tr><td>Border</td><td class="cell"><span class="sw" style="background:var(--success-700)"></span>700</td></tr>
-        <tr><td>Icon</td><td class="cell"><span class="sw" style="background:var(--success-700)"></span>700</td></tr>
-        <tr><td>Link h→p</td><td class="cell"><span class="sw" style="background:var(--success-900)"></span>900 → <span class="sw" style="background:var(--success-950)"></span>950</td></tr>
-      </tbody></table>
-    </div>
-    <div class="col">
-      <h4 style="background:var(--warning-600)">Warning · orange</h4>
-      <table><tbody>
-        <tr><td>Filled surface</td><td class="cell"><span class="sw" style="background:var(--warning-500)"></span>500 → 600</td></tr>
-        <tr><td>Filled text</td><td class="cell"><span class="sw tx" style="background:var(--ink);color:#fff">A</span>ink</td></tr>
-        <tr><td>Subtle text</td><td class="cell"><span class="sw" style="background:var(--warning-800)"></span>800</td></tr>
-        <tr><td>Tint surface</td><td class="cell"><span class="sw" style="background:var(--warning-50)"></span>50 / 100</td></tr>
-        <tr><td>Border</td><td class="cell"><span class="sw" style="background:var(--warning-700)"></span>700</td></tr>
-        <tr><td>Icon</td><td class="cell"><span class="sw" style="background:var(--warning-700)"></span>700</td></tr>
-        <tr><td>Link h→p</td><td class="cell"><span class="sw" style="background:var(--warning-900)"></span>900 → <span class="sw" style="background:var(--warning-950)"></span>950</td></tr>
-      </tbody></table>
-    </div>
-  </div>
+  </div><!-- /comp-sec message -->
 
 </div>
 
@@ -610,7 +585,11 @@
   var base=null, baseName=null, baseFam=null, comp='button', role='bg';
   var picker=document.getElementById('ccPicker');
 
-  document.getElementById('ccComp').addEventListener('change', function(){ comp=this.value; if(base) render(); });
+  function syncSections(){
+    document.querySelectorAll('.comp-sec').forEach(function(s){ s.style.display = (s.dataset.comp===comp) ? '' : 'none'; });
+  }
+  document.getElementById('ccComp').addEventListener('change', function(){ comp=this.value; syncSections(); if(base) render(); });
+  syncSections();
   document.getElementById('ccRole').addEventListener('click', function(e){ var b=e.target.closest('button'); if(!b)return;
     this.querySelectorAll('button').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); role=b.dataset.role; if(base) render(); });
 
@@ -633,99 +612,67 @@
     el.classList.add('sel'); base=hex; baseName=fam+' '+step; baseFam=fam; render();
   }
 
-  function chip(fam,step,hex,r,level,kind){
-    var d=document.createElement('div'); d.className='cc-chip';
-    var cs=document.createElement('div'); cs.className='cs'; cs.style.background=hex;
-    var t=document.createElement('div');
-    var n=document.createElement('div'); n.className='ct'; n.textContent=fam+' '+step;
+  // role: bg => base is the surface, candidate is the text/icon/border element
+  //       fg => base is the element, candidate is the surface
+  function surfaceFor(hex){ return role==='bg' ? base : hex; }
+  function elementFor(hex){ return role==='bg' ? hex : base; }
+
+  // build one category cell: returns a <td>
+  function cell(hex, r, type){
+    var td=document.createElement('td');
+    var labels={heading:'Heading',body:'Body & small',fine:'Fine print',icon:'Icon',ui:'UI / border'};
+    td.setAttribute('data-label', labels[type]);
+    var min = (type==='body')?4.5 : (type==='fine')?7 : 3;       // pass threshold
+    if(r < min){ td.className='cc-x'; td.appendChild(document.createTextNode('—')); return td; }
+    // WCAG level label
+    var lvl;
+    if(type==='heading') lvl = r>=4.5?'AAA':'AA';
+    else if(type==='body') lvl = r>=7?'AAA':'AA';
+    else if(type==='fine') lvl = 'AAA';
+    else lvl = 'OK';                                              // icon / ui (non-text, ≥3)
+    var pillCls = lvl==='AAA'?'aaa' : lvl==='AA'?'aa' : 'ui';
+
+    var surface=surfaceFor(hex), el=elementFor(hex);
+    var prev=document.createElement('div'); prev.className='cc-cprev'; prev.style.background=surface;
+    if(type==='heading') prev.innerHTML='<span style="font:800 15px/1 var(--font);color:'+el+'">Aa</span>';
+    else if(type==='body') prev.innerHTML='<span style="font:600 11px/1 var(--font);color:'+el+'">Body</span>';
+    else if(type==='fine') prev.innerHTML='<span style="font:500 8px/1 var(--font);color:'+el+'">Fine&nbsp;print</span>';
+    else if(type==='icon') prev.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="'+el+'" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16v.01"/></svg>';
+    else prev.innerHTML='<span style="display:inline-block;width:22px;height:14px;border-radius:4px;border:1.5px solid '+el+'"></span><span style="display:inline-block;width:14px;height:14px;border-radius:4px;background:'+el+'"></span>';
+
     var meta=document.createElement('div'); meta.className='cc-meta';
-    var rr=document.createElement('span'); rr.className='cr'; rr.textContent=r.toFixed(2)+':1';
-    var pl=document.createElement('span'); pl.className='pill '+(level==='AAA'?'aaa':level==='AA'?'aa':'ui'); pl.textContent=level;
-    meta.appendChild(rr); meta.appendChild(pl);
-    t.appendChild(n); t.appendChild(meta);
-    d.appendChild(cs); d.appendChild(t);
-    d.appendChild(kind==='ui' ? uiPreview(hex) : preview(hex));
-    return d;
-  }
-
-  // TEXT preview: base + suggested color as text, honoring role
-  function preview(hex){
-    var roleBg=(role==='bg');
-    var bg = roleBg ? base : hex;
-    var fg = roleBg ? hex  : base;
-    var p=document.createElement('div'); p.className='cc-prev';
-    var el=document.createElement('div');
-    if(comp==='button'){ p.style.background='var(--n-50)'; el.style.cssText='font:600 11px/14px var(--font);padding:5px 10px;border-radius:6px;background:'+bg+';color:'+fg+';border:1px solid '+(roleBg?bg:fg); el.textContent='Button'; }
-    else if(comp==='toast'){ p.style.background=bg; el.style.cssText='font:700 11px/14px var(--font);color:'+fg; el.textContent='● Toast'; }
-    else { p.style.background=bg; el.style.cssText='font:600 11px/14px var(--font);color:'+fg; el.textContent='ⓘ Message'; }
-    p.appendChild(el); return p;
-  }
-
-  // UI preview: shows the suggested color used as an ICON, a BORDER and a FILL chip — not as text
-  function uiPreview(hex){
-    // the UI element color is whichever is NOT the base surface
-    var roleBg=(role==='bg');
-    var surface = roleBg ? base : '#fcfcfc';
-    var ink = hex;                       // icon / border / fill color being tested
-    var p=document.createElement('div'); p.className='cc-prev cc-prev-ui'; p.style.background=surface;
-    p.innerHTML =
-      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="'+ink+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" title="icon"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16v.01"/></svg>'+
-      '<span style="display:inline-block;width:24px;height:16px;border-radius:4px;border:1.5px solid '+ink+'" title="border"></span>'+
-      '<span style="display:inline-block;width:16px;height:16px;border-radius:4px;background:'+ink+'" title="fill"></span>';
-    return p;
+    meta.innerHTML='<span class="cr">'+r.toFixed(2)+':1</span><span class="pill '+pillCls+'">'+lvl+'</span>';
+    td.appendChild(prev); td.appendChild(meta);
+    return td;
   }
 
   function render(){
     document.getElementById('ccResult').hidden=false;
     document.getElementById('ccPickName').textContent=baseName;
     document.getElementById('ccPickHex').textContent=base;
-    var fine=document.getElementById('ccFine'), body=document.getElementById('ccBody'),
-        large=document.getElementById('ccLarge'), ui=document.getElementById('ccUi');
-    fine.innerHTML=''; body.innerHTML=''; large.innerHTML=''; ui.innerHTML='';
-    // only suggest from the same palette as the selected color, plus Neutral
+
+    // big preview of the picked color itself
+    var pv=document.getElementById('ccPreview'); pv.style.background=base; pv.style.color = lum(base)<0.4?'#fff':'#0c0d10';
+
+    var rows=document.getElementById('ccRows'); rows.innerHTML='';
+    var count=0;
     ORDER.filter(function(fam){ return fam===baseFam || fam==='Neutral'; })
       .forEach(function(fam){ Object.keys(RAMPS[fam]).forEach(function(step){
       var hex=RAMPS[fam][step]; if(hex.toLowerCase()===base.toLowerCase()) return;
       var r=ratio(base,hex);
-      // fine print / disclaimers (small text → AAA, needs >= 7:1)
-      if(r>=7) fine.appendChild(chip(fam,step,hex,r,'AAA'));
-      // body & small text
-      if(r>=4.5) body.appendChild(chip(fam,step,hex,r, r>=7?'AAA':'AA'));
-      // headings & large text
-      if(r>=3) large.appendChild(chip(fam,step,hex,r, r>=4.5?'AAA':'AA'));
-      // UI / icons / borders
-      if(r>=3) ui.appendChild(chip(fam,step,hex,r,'UI','ui'));
+      if(r < 3) return;                       // passes nothing → skip
+      count++;
+      var tr=document.createElement('tr');
+      var c0=document.createElement('td'); c0.className='cc-colname';
+      c0.innerHTML='<div class="cc-colcell"><span class="cs" style="background:'+hex+'"></span><span class="ct">'+fam+' '+step+'<br><span class="cc-colhex">'+hex+'</span></span></div>';
+      tr.appendChild(c0);
+      ['heading','body','fine','icon','ui'].forEach(function(type){ tr.appendChild(cell(hex,r,type)); });
+      rows.appendChild(tr);
     }); });
-    [fine,body,large,ui].forEach(function(b){ if(!b.children.length){ var e=document.createElement('div'); e.className='cc-empty'; e.textContent='None — try a lighter or darker shade.'; b.appendChild(e); } });
+    if(!count){ var tr=document.createElement('tr'); var td=document.createElement('td'); td.colSpan=6; td.className='cc-empty'; td.textContent='No same-palette colour reaches 3:1 against this shade — try a lighter or darker one.'; tr.appendChild(td); rows.appendChild(tr); }
 
-    // ---- preview reflects component + role ----
-    var roleBg = (role==='bg');
-    var partner = bestPartner();           // highest-contrast color from same palette + neutral
-    var bg = roleBg ? base : (partner?partner.hex:'#fcfcfc');
-    var fg = roleBg ? (partner?partner.hex:'#0c0d10') : base;
-    var pv=document.getElementById('ccPreview'); pv.innerHTML='';
-    var el=document.createElement('div');
-    if(comp==='button'){ pv.style.background='var(--n-50)'; el.style.cssText='font:600 13px/18px var(--font);padding:9px 16px;border-radius:8px;background:'+bg+';color:'+fg+';border:1px solid '+(roleBg?bg:fg); el.textContent='Button'; }
-    else if(comp==='toast'){ pv.style.background=bg; el.style.cssText='font:700 13px/18px var(--font);color:'+fg; el.textContent='● Toast'; }
-    else { pv.style.background=bg; el.style.cssText='font:600 13px/18px var(--font);color:'+fg; el.textContent='ⓘ Message'; }
-    pv.appendChild(el);
-
-    // ---- hint ----
-    var n=body.querySelectorAll('.cc-chip').length;
-    var where = roleBg ? 'background' : 'text / icon';
-    var msg='Using <b>'+baseName+'</b> as the <b>'+where+'</b> of a '+comp+'. ';
-    if(roleBg) msg += n ? 'Put any of the <b>'+n+'</b> body-text color(s) below on top of it.' : 'No same-palette color is readable as body text on it — use it for large text, icons or borders only.';
-    else msg += n ? 'It reads as body text on any of the <b>'+n+'</b> surface(s) below.' : 'It is not readable as body text on any same-palette surface — reserve it for large text, icons or borders.';
-    document.getElementById('ccHint').innerHTML=msg;
-  }
-
-  function bestPartner(){
-    var best=null;
-    ORDER.filter(function(f){ return f===baseFam || f==='Neutral'; }).forEach(function(fam){
-      Object.keys(RAMPS[fam]).forEach(function(step){ var hex=RAMPS[fam][step];
-        if(hex.toLowerCase()===base.toLowerCase())return; var r=ratio(base,hex);
-        if(!best||r>best.r) best={hex:hex,r:r}; }); });
-    return best;
+    var where = role==='bg' ? 'background' : 'text / icon';
+    document.getElementById('ccHint').innerHTML='Using <b>'+baseName+'</b> as the <b>'+where+'</b> of a '+comp+'. Each row is a colour to pair with it; a column lights up where the pairing passes.';
   }
 })();
 </script>
